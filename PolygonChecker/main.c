@@ -4,9 +4,6 @@
 #include "main.h"
 #include "triangleSolver.h"
 
-#define TRI_POINTS		3 // defining common usages
-#define REC_POINTS		4
-
 int side = 0;
 
 int main() {
@@ -23,6 +20,7 @@ int main() {
 			int rectanglePoints[REC_POINTS * 2] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 			int* rectanglePointsPtr = getRectanglePoints(rectanglePoints);
 
+			assignRecCorner(rectanglePoints);
 			// char* result = analyzeRectangle(rectanglePointsPtr[0], rectanglePointsPtr[1], rectanglePointsPtr[2]);
 			break;
 		case 1:
@@ -59,9 +57,11 @@ int printShapeMenu() {
 
 	int shapeChoice = 0;
 
-	printf_s("Enter number: ");
-	scanf_s("%1o", &shapeChoice);
-
+	printf("Enter number: "); // fixed shapeChoice input so that it can function with numbers > 7
+	if (scanf_s("%d", &shapeChoice) != 1) {
+		printf("Invaild input");
+		return 0;
+	}
 	return shapeChoice;
 }
 
@@ -74,12 +74,15 @@ int* getTriangleSides(int* triangleSides) {
 	return triangleSides;
 }
 
-int getRectanglePoints(int* rectanglePoints) {
+int getRectanglePoints(int* rectanglePoints)  {// function to recive user input as cooridinates for rectangle corners
 	printf_s("Enter the 4 corners of your rectangle in the formate of x y coordinates (only ints!): "); // Each point is an x, y pair.
 	
-	for (int i = 0; i < (REC_POINTS * 2); i += 2) // iterate through inputs, adding them to the rectanglePoints array
-	{
-		scanf_s("%d, %d", &rectanglePoints[i], &rectanglePoints[i+1]);
+	for (int i = 0; i < (REC_POINTS * 2); i += 2) {		// iterate through inputs, adding them to the rectanglePoints array
+		if (scanf_s("%d %d", &rectanglePoints[i], &rectanglePoints[i + 1]) != 2) {
+			printf("Input invalid");
+			break;
+		}
+		// printf("== %d, %d ==", rectanglePoints[i], rectanglePoints[i + 1]);
 	}
 	return rectanglePoints;
 }
