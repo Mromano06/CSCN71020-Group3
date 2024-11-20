@@ -21,6 +21,8 @@ int main() {
 			int* rectanglePointsPtr = getRectanglePoints(rectanglePoints);
 
 			assignRecCorner(rectanglePoints);
+
+			findRecSideLengths(rectanglePoints);
 			// char* result = analyzeRectangle(rectanglePointsPtr[0], rectanglePointsPtr[1], rectanglePointsPtr[2]);
 			break;
 		case 1:
