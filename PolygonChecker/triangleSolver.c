@@ -52,9 +52,11 @@ char* analyzeTriangle(int side1, int side2, int side3) {
 	return result;
 }
 
-void getTriangleAngles(int side1, int side2, int side3) {
+double getTriangleAngles(int side1, int side2, int side3) {
 
-	double a = side1, b = side2, c = side3;
+	char* triCheck = analyzeTriangle(side1, side2, side3);
+
+	double a = side1, b = side2, c = side3, total = 0;
 
 	double angle1 = acos((b * b + c * c - a * a) / (2 * b * c));										// Angle opposite side a
 	double angle2 = acos((a * a + c * c - b * b) / (2 * a * c));										// Angle opposite side b
@@ -67,5 +69,12 @@ void getTriangleAngles(int side1, int side2, int side3) {
 	printf("Angle A: %.2f degrees\n", angle1);															// printing all values
 	printf("Angle B: %.2f degrees\n", angle2);
 	printf("Angle C: %.2f degrees\n\n", angle3);
+
+	total = angle1 + angle2 + angle3;
+
+	if (total != 180.0 || side1 > 100 || side2 > 100 || side3 > 100)
+		return(-1);
+
+	return ((int)total);
 
 }
