@@ -8,6 +8,9 @@
 
 char* analyzeTriangle(int side1, int side2, int side3) {
 
+	if (side1 > 100 || side2 > 100 || side3 > 100)
+		return("Error side lenghts exceed max length\n");	
+
 	int a = side1, b = side2, c = side3, largestSide = 0;
 
 	if (a >= b && a >= c) {																				// find the hypotonuse
@@ -26,7 +29,7 @@ char* analyzeTriangle(int side1, int side2, int side3) {
 	}
 
 	char* result = "";
-	if ((side1 <= 0 || side2 <= 0 || side3 <= 0) || largestSide > (side1 + side2 + side3)) {			// now also checks if other sides larger than hypotonuse
+	if (side1 <= 0 || side2 <= 0 || side3 <= 0 || largestSide > (a + b + c)) {							// now also checks if other sides larger than hypotonuse
 
 		result = "Not a triangle\n";
 
