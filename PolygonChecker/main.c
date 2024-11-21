@@ -17,13 +17,14 @@ int main() {
 		{
 		case 2:
 			printf_s("Rectangle selected.\n"); // Added rectangle case
-			int rectanglePoints[REC_POINTS * 2] = { 0, 0, 0, 0, 0, 0, 0, 0 };
+			int rectanglePoints[REC_POINTS * 2] = { 0 };
+			double rectangleSides[REC_POINTS] = { 0 };
+
 			int* rectanglePointsPtr = getRectanglePoints(rectanglePoints);
 
 			assignRecCorner(rectanglePoints);
+			findRecSideLengths(rectanglePoints, rectangleSides);
 
-			findRecSideLengths(rectanglePoints);
-			// char* result = analyzeRectangle(rectanglePointsPtr[0], rectanglePointsPtr[1], rectanglePointsPtr[2]);
 			break;
 		case 1:
 			printf_s("Triangle selected.\n");
