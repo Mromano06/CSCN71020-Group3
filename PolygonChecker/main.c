@@ -35,6 +35,8 @@ int main() {
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
 			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			if (result != "Not a triangle\n")
+				getTriangleAngles(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);							// prints the angles of the triangles
 			printf_s("%s\n", result);
 			break;
 		case 0:
@@ -75,7 +77,7 @@ int* getTriangleSides(int* triangleSides) {
 	printf_s("Enter the three sides of the triangle: ");
 	for (int i = 0; i < 3; i++)
 	{
-		scanf_s("%d", &triangleSides[i]);
+		scanf_s("%d\n", &triangleSides[i]);
 	}
 	return triangleSides;
 }
