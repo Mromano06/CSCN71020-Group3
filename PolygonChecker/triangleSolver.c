@@ -69,9 +69,11 @@ double getTriangleAngles(int side1, int side2, int side3) {
 	angle2 = angle2 * (180.0 / M_PI);
 	angle3 = angle3 * (180.0 / M_PI);																	// converts all values to degrees
 
+	/*
 	printf("Angle A: %.2f degrees\n", angle1);															// printing all values
 	printf("Angle B: %.2f degrees\n", angle2);
 	printf("Angle C: %.2f degrees\n\n", angle3);
+	*/
 
 	total = angle1 + angle2 + angle3;
 

@@ -4,8 +4,6 @@
 #include "main.h"
 #include "triangleSolver.h"
 
-int side = 0;
-
 int main() {
 	bool continueProgram = true;
 	while (continueProgram) {
@@ -46,7 +44,7 @@ int main() {
 			continueProgram = false;
 			break;
 		default:
-			printf_s("Invalid value entered.\n");
+			printf_s("Invalid value entered\n");
 			break;
 		}
 	}
@@ -79,7 +77,7 @@ int printShapeMenu() {
 int getTriangleSides(int* triangleSides) {
 	printf_s("Enter the three sides of the triangle (seperated by spaces): ");
 	
-	if (scanf_s("%d %d %d\n", &triangleSides[0], &triangleSides[1], &triangleSides[2]) != 3) {
+	if (scanf_s("%d %d %d", &triangleSides[0], &triangleSides[1], &triangleSides[2]) != 3) {
 		printf("Input invalid");
 		return 0;
 	}
