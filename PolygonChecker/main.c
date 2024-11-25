@@ -17,6 +17,7 @@ int main() {
 		{
 		case 2:
 			printf_s("Rectangle selected.\n\n"); // Added rectangle case
+
 			int rectanglePoints[REC_POINTS * 2] = { 0 };
 			double rectangleSides[REC_POINTS] = { 0 };
 			double rectangleHypotenuse[REC_POINTS] = { 0 };
@@ -31,12 +32,14 @@ int main() {
 			break;
 		case 1:
 			printf_s("Triangle selected.\n");
+
 			int triangleSides[TRI_POINTS] = { 0 }; // changed initialization
+
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
-			//printf_s("! %d\n", triangleSidesPtr[0]);
+
 			char* result = analyzeTriangle(triangleSides[0], triangleSides[1], triangleSides[2]);
-			if (result != "Not a triangle\n")
-				getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);							// prints the angles of the triangles
+			
+			getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);							// prints the angles of the triangles
 			printf_s("%s\n", result);
 			break;
 		case 0:
@@ -73,10 +76,12 @@ int printShapeMenu() {
 	return shapeChoice;
 }
 
-int* getTriangleSides(int* triangleSides) {
+int getTriangleSides(int* triangleSides) {
 	printf_s("Enter the three sides of the triangle (seperated by spaces): ");
-	if (scanf_s("%d %d %d\n", &triangleSides[0], &triangleSides[1], &triangleSides[2]) != 1) {
+	
+	if (scanf_s("%d %d %d\n", &triangleSides[0], &triangleSides[1], &triangleSides[2]) != 3) {
 		printf("Input invalid");
+		return 0;
 	}
 	return triangleSides;
 }
@@ -89,7 +94,6 @@ int getRectanglePoints(int* rectanglePoints)  {// function to recive user input 
 			printf("Input invalid");
 			break;
 		}
-		// printf("== %d, %d ==", rectanglePoints[i], rectanglePoints[i + 1]);
 	}
 	return rectanglePoints;
 }
