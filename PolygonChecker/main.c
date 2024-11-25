@@ -31,12 +31,12 @@ int main() {
 			break;
 		case 1:
 			printf_s("Triangle selected.\n");
-			int triangleSides[TRI_POINTS] = { 0, 0, 0 };
+			int triangleSides[TRI_POINTS] = { 0 }; // changed initialization
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			//printf_s("! %d\n", triangleSidesPtr[0]);
-			char* result = analyzeTriangle(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);
+			char* result = analyzeTriangle(triangleSides[0], triangleSides[1], triangleSides[2]);
 			if (result != "Not a triangle\n")
-				getTriangleAngles(triangleSidesPtr[0], triangleSidesPtr[1], triangleSidesPtr[2]);							// prints the angles of the triangles
+				getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);							// prints the angles of the triangles
 			printf_s("%s\n", result);
 			break;
 		case 0:
@@ -74,10 +74,9 @@ int printShapeMenu() {
 }
 
 int* getTriangleSides(int* triangleSides) {
-	printf_s("Enter the three sides of the triangle: ");
-	for (int i = 0; i < 3; i++)
-	{
-		scanf_s("%d\n", &triangleSides[i]);
+	printf_s("Enter the three sides of the triangle (seperated by spaces): ");
+	if (scanf_s("%d %d %d\n", &triangleSides[0], &triangleSides[1], &triangleSides[2]) != 1) {
+		printf("Input invalid");
 	}
 	return triangleSides;
 }

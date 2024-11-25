@@ -49,7 +49,7 @@ void findRecSideLengths(int* rectanglePoints, double* rectangleSides) {
     int length = 0;
     double recPerimeter = 0;
 
-    for (int i = 0; i < 5; i += 2) { // finding side length for height (+1 so all values can be reached)
+    for (int i = 0; i < REC_POINTS + 1; i += 2) { // finding side length for height (+1 so all values can be reached)
         double x = pow((rectanglePoints[2 + i] - rectanglePoints[0 + i]), 2); // (x2 - x1) ^ 2
         double y = pow((rectanglePoints[3 + i] - rectanglePoints[1 + i]), 2); // (y2 - y1) ^ 2
 
@@ -98,14 +98,6 @@ void recArea(double* rectangleSides, bool* rectANGLES) { // finding the area of 
         printf("The area of this rectangle is: %.2lf units\n", area);
     }
 }
-
-/*
-double safe_acos(double x) {
-    if (x < -1.0) x = -1.0;
-    if (x > 1.0) x = 1.0;
-    return acos(x);
-}
-*/
 
 bool rectANGLES(double* rectangleSides, double* rectangleHypotenuse) {
     
