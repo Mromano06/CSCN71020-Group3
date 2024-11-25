@@ -16,17 +16,16 @@ int main() {
 		switch (shapeChoice)
 		{
 		case 2:
-			printf_s("Rectangle selected.\n"); // Added rectangle case
+			printf_s("Rectangle selected.\n\n"); // Added rectangle case
 			int rectanglePoints[REC_POINTS * 2] = { 0 };
 			double rectangleSides[REC_POINTS] = { 0 };
 			double rectangleHypotenuse[REC_POINTS] = { 0 };
 
 			int* rectanglePointsPtr = getRectanglePoints(rectanglePoints);
-			bool isRectangle = rectANGLES(rectangleSides, rectangleHypotenuse);
 
 			assignRecCorner(rectanglePoints);
 			findRecSideLengths(rectanglePoints, rectangleSides);
-			printf("%d", isRectangle);
+			bool isRectangle = rectANGLES(rectangleSides, rectangleHypotenuse);
 			recArea(rectangleSides, &isRectangle);
 
 			break;
