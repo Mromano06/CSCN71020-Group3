@@ -32,13 +32,10 @@ int main() {
 			printf_s("Triangle selected.\n");
 
 			int triangleSides[TRI_POINTS] = { 0 }; // changed initialization
-
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
-
 			char* result = analyzeTriangle(triangleSides[0], triangleSides[1], triangleSides[2]);
-			
-			getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);							// prints the angles of the triangles
-			printf_s("%s\n", result);
+			if (result != "Not a triangle\n")
+				double angles = getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);
 			break;
 		case 0:
 			continueProgram = false;
