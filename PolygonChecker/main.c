@@ -19,11 +19,15 @@ int main() {
 			printf_s("Rectangle selected.\n"); // Added rectangle case
 			int rectanglePoints[REC_POINTS * 2] = { 0 };
 			double rectangleSides[REC_POINTS] = { 0 };
+			double rectangleHypotenuse[REC_POINTS] = { 0 };
 
 			int* rectanglePointsPtr = getRectanglePoints(rectanglePoints);
+			bool isRectangle = rectANGLES(rectangleSides, rectangleHypotenuse);
 
 			assignRecCorner(rectanglePoints);
 			findRecSideLengths(rectanglePoints, rectangleSides);
+			printf("%d", isRectangle);
+			recArea(rectangleSides, &isRectangle);
 
 			break;
 		case 1:
