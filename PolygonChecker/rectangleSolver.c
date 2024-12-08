@@ -25,7 +25,7 @@ void assignRecCorner(int* rectanglePoints) {
   
     qsort(rectanglePoints, REC_POINTS, 2 * sizeof(int), compare);
 
-    if (rectanglePoints[7] > rectanglePoints[1]) { // swapping corner 3 & 4 when misplaced
+    if (rectanglePoints[7] > rectanglePoints[5] && rectanglePoints[3] > rectanglePoints[1]) { // swapping corner 3 & 4 when misplaced // updated lol
         int temp1 = rectanglePoints[6];
         int temp2 = rectanglePoints[7];
 

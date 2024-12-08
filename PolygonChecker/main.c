@@ -14,7 +14,7 @@ int main() {
 		switch (shapeChoice)
 		{
 		case 2:
-			printf_s("Rectangle selected.\n\n"); // Added rectangle case
+			printf_s("Rectangle selected\n\n"); // Added rectangle case
 
 			int rectanglePoints[REC_POINTS * 2] = { 0 };
 			double rectangleSides[REC_POINTS] = { 0 };
@@ -29,13 +29,15 @@ int main() {
 
 			break;
 		case 1:
-			printf_s("Triangle selected.\n");
+			printf_s("Triangle selected\n\n");
+			double angles = 0;
 
 			int triangleSides[TRI_POINTS] = { 0 }; // changed initialization
 			int* triangleSidesPtr = getTriangleSides(triangleSides);
 			char* result = analyzeTriangle(triangleSides[0], triangleSides[1], triangleSides[2]);
 			if (result != "Not a triangle\n")
-				double angles = getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);
+			angles = getTriangleAngles(triangleSides[0], triangleSides[1], triangleSides[2]);
+
 			break;
 		case 0:
 			continueProgram = false;
